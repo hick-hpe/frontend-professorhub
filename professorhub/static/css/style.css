@@ -26,6 +26,10 @@
     background-color: #dbdcdd !important;
 }
 
+.item-active {
+    background-color: #dbdcdd !important;
+}
+
 #menu-icon, #icon-close {
     display: none;
 }

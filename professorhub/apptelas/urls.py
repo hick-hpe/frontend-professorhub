@@ -7,5 +7,10 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', register_view, name='register'),
     path('dashboard/', dashboard_view, name='dashboard'),
-    path('teste/', teste_view, name='teste'),
+    path('dashboard/', dashboard_view, name='dashboard'),
+    path('disciplinas/', disciplinas_view, name='disciplinas'),
+    path('calendario/', calendarios_view, name='calendario'),
+    path('tarefas/', tarefas_view, name='tarefas'),
+    path('avaliacoes/', avaliacoes_view, name='avaliacoes'),
+    path('planos-aula/', planos_aula_view, name='planos_aula'),
 ]

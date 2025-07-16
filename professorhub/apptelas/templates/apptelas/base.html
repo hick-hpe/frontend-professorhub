@@ -25,22 +25,54 @@
                 <i class="bi bi-x-lg position-absolute" id="icon-close"></i>
                 <div class="sidebar-content">
                     <ul class="list-group mx-3 mt-3">
-                        <li class="list-group-item"><i
-                                class="bi bi-house-door"></i> Dashboard</li>
-                        <li class="list-group-item"><i class="bi bi-book"></i>
-                            Disciplinas</li>
-                        <li class="list-group-item"><i
-                                class="bi bi-calendar"></i> Calendário</li>
-                        <li class="list-group-item"><i
-                                class="bi bi-list-check"></i> Tarefas</li>
-                        <li class="list-group-item"><i
-                                class="bi bi-journal"></i> Avaliações</li>
-                        <li class="list-group-item"><i
-                                class="bi bi-journal-bookmark-fill"></i> Planos
-                            de Aula</li>
+                        <li
+                            class="list-group-item {% if route == '/dashboard/' %}item-active{% endif %}">
+                            <a href="{% url 'dashboard' %}"
+                                class="text-decoration-none d-block text-dark">
+                                <i class="bi bi-house-door"></i> Dashboard
+                            </a>
+                        </li>
+                        <li
+                            class="list-group-item {% if route == '/disciplinas/' %}item-active{% endif %}">
+                            <a href="{% url 'disciplinas' %}"
+                                class="text-decoration-none d-block text-dark">
+                                <i class="bi bi-book"></i> Disciplinas
+                            </a>
+                        </li>
+                        <li
+                            class="list-group-item {% if route == '/calendario/' %}item-active{% endif %}">
+                            <a href="{% url 'calendario' %}"
+                                class="text-decoration-none d-block text-dark">
+                                <i class="bi bi-calendar"></i> Calendário
+                            </a>
+                        </li>
+                        <li
+                            class="list-group-item {% if route == '/tarefas/' %}item-active{% endif %}">
+                            <a href="{% url 'tarefas' %}"
+                                class="text-decoration-none d-block text-dark">
+                                <i class="bi bi-list-check"></i> Tarefas
+                            </a>
+                        </li>
+                        <li
+                            class="list-group-item {% if route == '/avaliacoes/' %}item-active{% endif %}">
+                            <a href="{% url 'avaliacoes' %}"
+                                class="text-decoration-none d-block text-dark">
+                                <i class="bi bi-journal"></i> Avaliações
+                            </a>
+                        </li>
+                        <li
+                            class="list-group-item {% if route == '/planos-aula/' %}item-active{% endif %}">
+                            <a href="{% url 'planos_aula' %}"
+                                class="text-decoration-none d-block text-dark">
+                                <i class="bi bi-journal-bookmark-fill"></i>
+                                Planos de Aula
+                            </a>
+                        </li>
                     </ul>
+
                 </div>
-                <form method="post" action="{% url 'logout' %}" style="margin: 0;">
+                <form method="post" action="{% url 'logout' %}"
+                    style="margin: 0;">
                     {% csrf_token %}
                     <button
                         class="btn btn-outline-danger ms-4 p-2 position-absolute"
@@ -49,18 +81,58 @@
                         <i class="bi bi-box-arrow-right"></i> Logout
                     </button>
                 </form>
-                
+
             </div>
 
-            {% block content %}
-            {% endblock %}
-        </div>
+            <div class="content-page border p-0">
+                <div class="navbar p-3 border-bottom">
+                    <!-- botao com icone 'list' -->
+                    <button class="btn btn-light border me-3" id="menu-icon">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h3>
+                        {% block titlenavbar %}
+                        {% endblock %}
+                    </h3>
+                    <div class="d-flex justify-content-end">
+                        <div class="dropdown">
+                            <button class="btn btn-light border dropdown-toggle"
+                                type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{% static 'img/image.png' %}"
+                                    class="rounded-circle" alt="Perfil"
+                                    style="height: 25px;"> {{ request.user }}
+                            </button>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="dropdownMenuButton1"
+                                style="width: 50px !important;">
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="#">Configurações</a>
+                                </li>
+                                <li>
+                                    <form method="post"
+                                        action="{% url 'logout' %}"
+                                        style="margin: 0;">
+                                        {% csrf_token %}
+                                        <button type="submit"
+                                            class="dropdown-item">Sair</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-            crossorigin="anonymous"></script>
+                {% block content %}
+                {% endblock %}
+            </div>
 
-        <script src="{% static 'js/script.js' %}"></script>
-    </body>
-</html>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+                crossorigin="anonymous"></script>
+
+            <script src="{% static 'js/script.js' %}"></script>
+        </body>
+    </html>
