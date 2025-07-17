@@ -59,6 +59,26 @@ td {
     margin-bottom: 5px;
 }
 
+.abas-disciplinas {
+    display: flex;
+}
+
+.aba {
+    background-color: #ccc;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 0;
+    cursor: pointer;
+}
+
+.aba:hover {
+    background-color: #eee;
+}
+
+.aba.active {
+    background-color: #fff;
+    box-shadow: 0 0 1px black;
+}
+
 @media screen and (max-width: 768px) {
     .sidebar {
         position: fixed;

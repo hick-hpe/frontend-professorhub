@@ -1,0 +1,221 @@
+{% extends 'apptelas/base.html' %}
+{% load static %}
+
+{% block title %}Disciplinas{% endblock %}
+
+{% block titlenavbar %}
+Disciplinas
+{% endblock %}
+
+{% block content %}
+<div class="container m-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a
+                    href="{% url 'disciplinas' %}">Disciplinas</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{
+                disciplina.nome }}</li>
+        </ol>
+    </nav>
+
+    <form class="mb-3">
+        <div class="d-flex gap-3 flex-wrap align-items-center">
+            <input type="email" class="form-control flex-grow-1"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Pesquisar tarefas">
+
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> Adicionar
+            </button>
+        </div>
+    </form>
+
+    <div class="abas-disciplinas">
+        <div
+            class="aba {% if request.GET.aba == 'Aulas' or not request.GET.aba %}active{% endif %}">
+            <a href="/disciplinas/{{ disciplina.id }}?aba=Aulas"
+                class="nav-link">Aulas</a>
+        </div>
+        <div
+            class="aba {% if request.GET.aba == 'PlanoAulas' %}active{% endif %}">
+            <a href="/disciplinas/{{ disciplina.id }}?aba=PlanoAulas"
+                class="nav-link">Plano de Aulas</a>
+        </div>
+        <div class="aba {% if request.GET.aba == 'Tarefas' %}active{% endif %}">
+            <a href="/disciplinas/{{ disciplina.id }}?aba=Tarefas"
+                class="nav-link">Tarefas</a>
+        </div>
+        <div
+            class="aba {% if request.GET.aba == 'Avaliacoes' %}active{% endif %}">
+            <a href="/disciplinas/{{ disciplina.id }}?aba=Avaliacoes"
+                class="nav-link">Avaliações</a>
+        </div>
+        <div
+            class="aba {% if request.GET.aba == 'Configuracoes' %}active{% endif %}">
+            <a href="/disciplinas/{{ disciplina.id }}?aba=Configuracoes"
+                class="nav-link">Configurações</a>
+        </div>
+    </div>
+
+    {% if request.GET.aba == 'Configuracoes' %}
+    <form class="col-6" action method="post">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="nome">Nome</label><br>
+            <input type="text" class="form-control" id="nome" name="nome" value="{{ disciplina.nome }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="carga_horaria">Carga horária</label><br>
+            <input type="text" class="form-control" id="carga_horaria"
+                name="carga_horaria">
+        </div>
+
+        <div class="mb-3">
+            <label for="objetivos">Objetivos</label><br>
+            <textarea class="form-control" id="objetivos"
+                name="objetivos" rows="5" style="resize: none;"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="ementa">Ementa</label><br>
+            <textarea class="form-control" id="ementa" name="ementa" rows="5" style="resize: none;"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Dias das aulas e quantidade de aulas por dia</label>
+            <!-- Segunda -->
+<div class="d-flex align-items-center gap-3 mt-2">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="dias[]" value="segunda" id="segunda">
+        <label class="form-check-label" for="segunda">Segunda-feira</label>
+    </div>
+    <input type="number" class="form-control" name="aulas_segunda" placeholder="ex: 2">
+</div>
+
+<!-- Terça -->
+<div class="d-flex align-items-center gap-3 mt-2">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="dias[]" value="terca" id="terca">
+        <label class="form-check-label" for="terca">Terça-feira</label>
+    </div>
+    <input type="number" class="form-control" name="aulas_terca" placeholder="ex: 2">
+</div>
+
+<!-- Quarta -->
+<div class="d-flex align-items-center gap-3 mt-2">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="dias[]" value="quarta" id="quarta">
+        <label class="form-check-label" for="quarta">Quarta-feira</label>
+    </div>
+    <input type="number" class="form-control" name="aulas_quarta" placeholder="ex: 2">
+</div>
+
+<!-- Quinta -->
+<div class="d-flex align-items-center gap-3 mt-2">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="dias[]" value="quinta" id="quinta">
+        <label class="form-check-label" for="quinta">Quinta-feira</label>
+    </div>
+    <input type="number" class="form-control" name="aulas_quinta" placeholder="ex: 2">
+</div>
+
+<!-- Sexta -->
+<div class="d-flex align-items-center gap-3 mt-2">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="dias[]" value="sexta" id="sexta">
+        <label class="form-check-label" for="sexta">Sexta-feira</label>
+    </div>
+    <input type="number" class="form-control" name="aulas_sexta" placeholder="ex: 2">
+</div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="periodo">Período</label>
+            <select class="form-select" name="periodo" id="periodo">
+                <option value selected disabled>Selecione o período</option>
+                <option value="bimestral">Bimestral</option>
+                <option value="semestral">Semestral</option>
+                <option value="anual">Anual</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="calendario">Calendário</label>
+            <select class="form-select" name="calendario" id="calendario">
+                <option value selected disabled>Selecione o calendário</option>
+                <!-- opções preenchidas dinamicamente ou no back-end -->
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Criar / Salvar</button>
+    </form>
+
+    {% else %}
+    <table class="table border">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data</th>
+                <th scope="col">Status</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="height: 50px;">Tarefa</td>
+                <td style="height: 50px;">Descrição da tarefa</td>
+                <td style="height: 50px;">2025-07-16</td>
+                <td style="height: 50px;">
+                    <span class="badge bg-warning text-dark">Em andamento</span>
+                </td>
+                <td style="height: 50px;">
+                    <button class="btn btn-sm btn-warning me-2">
+                        <i class="bi bi-pen"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 50px;">Tarefa</td>
+                <td style="height: 50px;">Descrição da tarefa</td>
+                <td style="height: 50px;">2025-07-16</td>
+                <td style="height: 50px;">
+                    <span class="badge bg-danger text-light">Pendente</span>
+                </td>
+                <td style="height: 50px;">
+                    <button class="btn btn-sm btn-warning me-2">
+                        <i class="bi bi-pen"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 50px;">Tarefa</td>
+                <td style="height: 50px;">Descrição da tarefa</td>
+                <td style="height: 50px;">2025-07-16</td>
+                <td style="height: 50px;">
+                    <span class="badge bg-success text-light">Concluída</span>
+                </td>
+                <td style="height: 50px;">
+                    <button class="btn btn-sm btn-warning me-2">
+                        <i class="bi bi-pen"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -8,5 +8,27 @@ Disciplinas
 {% endblock %}
 
 {% block content %}
-<div>Conteúdo de Disciplinas</div>
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for disciplina in disciplinas %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ disciplina.nome }}</h5>
+                    <p class="card-text">{{ disciplina.descricao|default:"Sem descrição." }}</p>
+                </div>
+                <div class="card-footer text-end">
+                    <a href="{% url 'disciplina_detail' disciplina.id %}" class="btn btn-primary btn-sm">Acessar</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">Nenhuma disciplina cadastrada.</div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
 {% endblock %}
