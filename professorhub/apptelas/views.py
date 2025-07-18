@@ -45,6 +45,23 @@ disciplinas = [
         'descricao': 'Aborda o ciclo de vida do desenvolvimento de software e boas práticas de projeto.',
     }
 ]
+calendarios = [
+    {
+        'id': 1,
+        'nome': 'Calendário Banco de Dados',
+        'disciplina': 'Banco de Dados'
+    },
+    {
+        'id': 2,
+        'nome': 'Calendário Programação Web',
+        'disciplina': 'Programação Web'
+    },
+    {
+        'id': 3,
+        'nome': 'Calendário Engenharia de Software',
+        'disciplina': 'Engenharia de Software'
+    }
+]
 @login_required(login_url='/login/')
 def disciplinas_view(request):
     return render(request, 'apptelas/disciplinas.html', {'disciplinas': disciplinas})
@@ -55,10 +72,14 @@ def disciplina_detail_view(request, id):
     return render(request, 'apptelas/disciplina_detail.html', {'disciplina': disciplinas[id-1]})
 
 
-
 @login_required(login_url='/login/')
 def calendarios_view(request):
-    return render(request, 'apptelas/calendarios.html')
+    return render(request, 'apptelas/calendarios.html', {'calendarios': calendarios})
+
+
+@login_required(login_url='/login/')
+def calendario_detail_view(request, id):
+    return render(request, 'apptelas/calendario_detail.html', {'calendario': calendarios[id-1]})
 
 
 @login_required(login_url='/login/')

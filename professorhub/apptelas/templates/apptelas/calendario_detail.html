@@ -1,0 +1,80 @@
+{% extends 'apptelas/base.html' %}
+{% load static %}
+
+{% block title %}Calendários{% endblock %}
+
+{% block titlenavbar %}
+Calendários
+{% endblock %}
+
+{% block content %}
+<div class="container my-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a
+                    href="{% url 'calendario' %}">Calendários</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{
+                calendario.nome }}</li>
+        </ol>
+    </nav>
+
+    <div class="abas-disciplinas">
+        <div
+            class="aba {% if request.GET.aba == 'DadosCalendario' or not request.GET.aba %}active{% endif %}">
+            <a href="/calendarios/{{ calendario.id }}?aba=DadosCalendario"
+                class="nav-link">Dados Calendário</a>
+        </div>
+        <div
+            class="aba {% if request.GET.aba == 'DatasImportantes' %}active{% endif %}">
+            <a href="/calendarios/{{ calendario.id }}?aba=DatasImportantes"
+                class="nav-link">Datas Importantes</a>
+        </div>
+    </div>
+
+    {% if request.GET.aba == 'DadosCalendario' or not request.GET.aba %}
+    <form class="col-12 col-lg-8 p-3 shadow" action method="post">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="nome">Nome</label><br>
+            <input type="text" class="form-control" id="nome" name="nome"
+                value="{{ calendario.nome }}">
+        </div>
+
+        <select class="form-select" name="periodo" id="periodo">
+            <option value selected disabled>Selecione a disciplina</option>
+            <option value="Banco de Dados" selected>Banco de Dados</option>
+            <option value="Programação Web">Programação Web</option>
+            <option value="Engenharia de Software">Engenharia de Software</option>
+        </select>
+
+        <div class="d-flex justify-content-between mt-3">
+            <div class="btn btn-danger">Excluir (add modal)</div>
+            <div class="btn btn-success">Salvar</div>
+        </div>
+    </form>
+    {% else %}
+    <div class="my-2">
+        <input type="text" class="form-control flex-grow-1"
+            id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Pesquisar datas">
+    </div>
+    <table class="table border">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">Data</th>
+                <th scope="col">Detalhes</th>
+                <th scope="col">É dia letivo?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="height: 50px;">18/07/2025</td>
+                <td style="height: 50px;">Descrição da data</td>
+                <td style="height: 50px;">Não</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

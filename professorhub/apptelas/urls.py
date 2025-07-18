@@ -9,10 +9,12 @@ urlpatterns = [
     path('register/', register_view, name='register'),
     path('dashboard/', dashboard_view, name='dashboard'),
     path('disciplinas/', disciplinas_view, name='disciplinas'),
-    path('calendario/', calendarios_view, name='calendario'),
     path('tarefas/', tarefas_view, name='tarefas'),
     path('avaliacoes/', avaliacoes_view, name='avaliacoes'),
     path('planos-aula/', planos_aula_view, name='planos_aula'),
 
     path('disciplinas/<int:id>/', disciplina_detail_view, name='disciplina_detail'),
+    
+    path('calendarios/', calendarios_view, name='calendario'),
+    path('calendarios/<int:id>/', calendario_detail_view, name='calendario_detail'),
 ]

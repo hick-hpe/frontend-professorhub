@@ -22,7 +22,8 @@ Avaliações
                 <option value="3">Em andamento</option>
             </select>
 
-            <button type="submit" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
                 <i class="bi bi-plus-lg"></i> Adicionar Avaliação
             </button>
         </div>
@@ -33,6 +34,7 @@ Avaliações
             <tr class="table-dark">
                 <th scope="col">Nome</th>
                 <th scope="col">Descrição</th>
+                <th scope="col">Disciplina</th>
                 <th scope="col">Data</th>
                 <th scope="col">Status</th>
                 <th scope="col">Ações</th>
@@ -42,6 +44,7 @@ Avaliações
             <tr>
                 <td style="height: 50px;">Avaliação</td>
                 <td style="height: 50px;">Descrição da Avaliação</td>
+                <td style="height: 50px;">Banco de Dados</td>
                 <td style="height: 50px;">2025-07-16</td>
                 <td style="height: 50px;">
                     <span class="badge bg-warning text-dark">Em andamento</span>
@@ -58,6 +61,7 @@ Avaliações
             <tr>
                 <td style="height: 50px;">Avaliação</td>
                 <td style="height: 50px;">Descrição da Avaliação</td>
+                <td style="height: 50px;">Banco de Dados</td>
                 <td style="height: 50px;">2025-07-16</td>
                 <td style="height: 50px;">
                     <span class="badge bg-danger text-light">Pendente</span>
@@ -74,6 +78,7 @@ Avaliações
             <tr>
                 <td style="height: 50px;">Avaliação</td>
                 <td style="height: 50px;">Descrição da Avaliação</td>
+                <td style="height: 50px;">Banco de Dados</td>
                 <td style="height: 50px;">2025-07-16</td>
                 <td style="height: 50px;">
                     <span class="badge bg-success text-light">Concluída</span>
@@ -89,6 +94,66 @@ Avaliações
             </tr>
         </tbody>
     </table>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Adicionar Avaliação
+                    </h5>
+                    <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action method="post">
+                        <label for="disciplina">Disciplina</label><br>
+                        <select class="form-select" name="periodo" id="periodo">
+                            <option value selected disabled>Selecione a
+                                disciplina</option>
+                            <option value="Banco de Dados" selected>Banco de
+                                Dados</option>
+                            <option value="Programação Web">Programação
+                                Web</option>
+                            <option value="Engenharia de Software">Engenharia de
+                                Software</option>
+                        </select>
+
+                        <div class="mb-3">
+                            <label for="tipo_avaliacao">Tipo</label><br>
+                            <select class="form-select" name="periodo"
+                                id="periodo">
+                                <option value selected disabled>Selecione o
+                                    tipo</option>
+                                <option value="avaliacao">Avaliação</option>
+                                <option value="trabalho">Trabalho</option>
+                                <option value="prova">Prova</option>
+                                <option value="recuperacao">Recuperação</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descricao">Descrição</label><br>
+                            <textarea class="form-control" id="descricao"
+                                name="descricao" rows="5"
+                                style="resize: none;"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="data_aplicacao">Data de
+                                aplicação</label><br>
+                            <input type="date" class="form-control"
+                                id="data_aplicacao"
+                                name="data_aplicacao">
+                        </div>
+
+                        <div class="btn btn-primary">Salvar</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 {% endblock %}

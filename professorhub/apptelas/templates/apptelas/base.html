@@ -43,7 +43,7 @@
                         </li>
 
                         <li
-                            class="list-group-item {% if request.path == '/calendario/' %}item-active{% endif %}">
+                            class="list-group-item {% if '/calendarios/' in request.path %}item-active{% endif %}">
                             <a href="{% url 'calendario' %}"
                                 class="text-decoration-none d-block text-dark">
                                 <i class="bi bi-calendar"></i> Calendário
