@@ -79,6 +79,11 @@ td {
     box-shadow: 0 0 1px black;
 }
 
+.dia-calendario:hover {
+    background-color: #dbdcdd !important;
+}
+
+
 @media screen and (max-width: 768px) {
     .sidebar {
         position: fixed;

@@ -8,5 +8,140 @@ Planos de Aula
 {% endblock %}
 
 {% block content %}
-<div>Conteúdo de Planos de Aula</div>
+<div class="container mt-3">
+    <form class="mb-3">
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+            <input type="email" class="form-control flex-grow-1"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Pesquisar tarefas">
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                <i class="bi bi-plus-lg"></i> Adicionar Plano
+            </button>
+        </div>
+    </form>
+
+    <table class="table border">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">Nome</th>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Objetivo</th>
+                <th scope="col">Conteúdos</th>
+                <th scope="col">
+                    <span class="d-inline d-sm-none">Aulas</span>
+                    <span class="d-none d-sm-inline">Quantidade de Aulas</span>
+                </th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="height: 50px;">Plano</td>
+                <td style="height: 50px;">Banco de Dados</td>
+                <td style="height: 50px;">Objetivo da terefa</td>
+                <td style="height: 50px;">Conteúdos da tarefa</td>
+                <td style="height: 50px;">2</td>
+                <td style="height: 50px;">
+                    <button class="btn btn-sm btn-warning me-2">
+                        <i class="bi bi-pen"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 50px;">Plano</td>
+                <td style="height: 50px;">Banco de Dados</td>
+                <td style="height: 50px;">Objetivo da terefa</td>
+                <td style="height: 50px;">Conteúdos da tarefa</td>
+                <td style="height: 50px;">2</td>
+                <td style="height: 50px;">
+                    <button class="btn btn-sm btn-warning me-2">
+                        <i class="bi bi-pen"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 50px;">Plano</td>
+                <td style="height: 50px;">Banco de Dados</td>
+                <td style="height: 50px;">Objetivo da terefa</td>
+                <td style="height: 50px;">Conteúdos da tarefa</td>
+                <td style="height: 50px;">2</td>
+                <td style="height: 50px;">
+                    <button class="btn btn-sm btn-warning me-2">
+                        <i class="bi bi-pen"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Adicionar Plano
+                    </h5>
+                    <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action method="post">
+                        <label for="disciplina">Disciplina</label><br>
+                        <select class="form-select" name="periodo" id="periodo">
+                            <option value selected disabled>Selecione a
+                                disciplina</option>
+                            <option value="Banco de Dados" selected>Banco de
+                                Dados</option>
+                            <option value="Programação Web">Programação
+                                Web</option>
+                            <option value="Engenharia de Software">Engenharia de
+                                Software</option>
+                        </select>
+
+                        <div class="mb-3">
+                            <label for="nome">Nome</label><br>
+                            <input type="text" class="form-control"
+                                id="nome"
+                                name="nome">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="objetivo">Objetivo</label><br>
+                            <textarea class="form-control" id="objetivo"
+                                name="objetivo" rows="5"
+                                style="resize: none;"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="conteudos">Conteúdos</label><br>
+                            <textarea class="form-control" id="conteudos"
+                                name="conteudos" rows="5"
+                                style="resize: none;"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="qtd_aulas">Quantidade de aulas</label><br>
+                            <input type="number" class="form-control"
+                                id="qtd_aulas"
+                                name="qtd_aulas">
+                        </div>
+
+                        <div class="btn btn-primary w-100">Salvar</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

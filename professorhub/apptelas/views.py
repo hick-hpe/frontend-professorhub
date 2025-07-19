@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegister#, UserLogin
+from .forms import UserRegister, UserLogin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth import login
 
 
 def index_view(request):
@@ -11,7 +13,9 @@ def register_view(request):
         form = UserRegister(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+
+            # pagina de ativacao da conta
+            return redirect('enviar_email_verificacao')
         print('erros...')
         print(form.errors)
         return render(request, 'apptelas/register.html', {
@@ -21,6 +25,34 @@ def register_view(request):
     # senha: rsA/47y£kI-6
     form = UserRegister()
     return render(request, 'apptelas/register.html', {'form': form})
+
+
+def login_view(request):
+    if request.method == "POST":
+        form = UserLogin(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+
+            # Ativa o usuário se ainda não estiver ativo
+            if not user.is_active:
+                user.is_active = True
+                user.save()
+
+            # Realiza o login
+            login(request, user)
+            return redirect("home")  # redirecione para onde quiser após login
+    else:
+        form = UserLogin()
+
+    return render(request, "apptelas/login.html", {"form": form})
+
+
+def enviar_email_verificacao_view(request):
+    return render(request, 'apptelas/enviar_email_verificacao.html')
+
+
+def conta_ativada_view(request):
+    return render(request, 'apptelas/conta_ativada.html')
 
 
 @login_required(login_url='/login/')

@@ -16,10 +16,12 @@ Disciplinas
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">{{ disciplina.nome }}</h5>
-                    <p class="card-text">{{ disciplina.descricao|default:"Sem descrição." }}</p>
+                    <p class="card-text">{{
+                        disciplina.descricao|default:"Sem descrição." }}</p>
                 </div>
                 <div class="card-footer text-end">
-                    <a href="{% url 'disciplina_detail' disciplina.id %}" class="btn btn-primary btn-sm">Acessar</a>
+                    <a href="{% url 'disciplina_detail' disciplina.id %}"
+                        class="btn btn-primary btn-sm">Acessar</a>
                 </div>
             </div>
         </div>
@@ -29,6 +31,154 @@ Disciplinas
         </div>
         {% endfor %}
 
+    </div>
+</div>
+
+<button type="button"
+    class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center position-absolute bottom-0 end-0 mb-3 me-3"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal" style="height: 50px; width: 50px;">
+    <i class="bi bi-plus fs-3"></i>
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Adicionar
+                    Disciplina</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class action method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="nome">Nome</label><br>
+                        <input type="text" class="form-control" id="nome"
+                            name="nome"
+                            value="{{ disciplina.nome }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="carga_horaria">Carga horária</label><br>
+                        <input type="text" class="form-control"
+                            id="carga_horaria"
+                            name="carga_horaria">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="objetivos">Objetivos</label><br>
+                        <textarea class="form-control" id="objetivos"
+                            name="objetivos" rows="5"
+                            style="resize: none;"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ementa">Ementa</label><br>
+                        <textarea class="form-control" id="ementa" name="ementa"
+                            rows="5"
+                            style="resize: none;"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Dias das aulas e quantidade de aulas por
+                            dia</label>
+                        <!-- Segunda -->
+                        <div class="d-flex align-items-center gap-3 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    name="dias[]" value="segunda" id="segunda">
+                                <label class="form-check-label"
+                                    for="segunda">Segunda-feira</label>
+                            </div>
+                            <input type="number" class="form-control"
+                                name="aulas_segunda"
+                                placeholder="ex: 2">
+                        </div>
+
+                        <!-- Terça -->
+                        <div class="d-flex align-items-center gap-3 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    name="dias[]" value="terca" id="terca">
+                                <label class="form-check-label"
+                                    for="terca">Terça-feira</label>
+                            </div>
+                            <input type="number" class="form-control"
+                                name="aulas_terca"
+                                placeholder="ex: 2">
+                        </div>
+
+                        <!-- Quarta -->
+                        <div class="d-flex align-items-center gap-3 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    name="dias[]" value="quarta" id="quarta">
+                                <label class="form-check-label"
+                                    for="quarta">Quarta-feira</label>
+                            </div>
+                            <input type="number" class="form-control"
+                                name="aulas_quarta"
+                                placeholder="ex: 2">
+                        </div>
+
+                        <!-- Quinta -->
+                        <div class="d-flex align-items-center gap-3 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    name="dias[]" value="quinta" id="quinta">
+                                <label class="form-check-label"
+                                    for="quinta">Quinta-feira</label>
+                            </div>
+                            <input type="number" class="form-control"
+                                name="aulas_quinta"
+                                placeholder="ex: 2">
+                        </div>
+
+                        <!-- Sexta -->
+                        <div class="d-flex align-items-center gap-3 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    name="dias[]" value="sexta" id="sexta">
+                                <label class="form-check-label"
+                                    for="sexta">Sexta-feira</label>
+                            </div>
+                            <input type="number" class="form-control"
+                                name="aulas_sexta"
+                                placeholder="ex: 2">
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="periodo">Período</label>
+                        <select class="form-select" name="periodo" id="periodo">
+                            <option value selected disabled>Selecione o
+                                período</option>
+                            <option value="bimestral">Bimestral</option>
+                            <option value="semestral">Semestral</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="calendario">Calendário</label>
+                        <select class="form-select" name="calendario"
+                            id="calendario">
+                            <option value selected disabled>Selecione o
+                                calendário</option>
+                            <!-- opções preenchidas dinamicamente ou no back-end -->
+                        </select>
+                    </div>
+
+                    <button type="submit"
+                        class="btn btn-primary w-100">Salvar</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

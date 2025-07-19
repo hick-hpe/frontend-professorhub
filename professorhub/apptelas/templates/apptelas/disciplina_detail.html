@@ -171,7 +171,7 @@ Disciplinas
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Criar / Salvar</button>
+        <button type="submit" class="btn btn-primary w-100">Salvar</button>
     </form>
 
     {% else %}
@@ -276,7 +276,7 @@ Disciplinas
                                 name="data_aula">
                         </div>
 
-                        <div class="btn btn-primary">Salvar</div>
+                        <div class="btn btn-primary w-100">Salvar</div>
                     </form>
                     {% elif request.GET.aba == 'PlanoAulas' %}
                     <form action method="post">
@@ -308,7 +308,7 @@ Disciplinas
                                 name="qtd_aula">
                         </div>
 
-                        <div class="btn btn-primary">Salvar</div>
+                        <div class="btn btn-primary w-100">Salvar</div>
                     </form>
                     {% elif request.GET.aba == 'Tarefas'%}
                     <form action method="post">
@@ -333,7 +333,7 @@ Disciplinas
                                 name="data_entrega">
                         </div>
 
-                        <div class="btn btn-primary">Salvar</div>
+                        <div class="btn btn-primary w-100">Salvar</div>
                     </form>
                     {% elif request.GET.aba == 'Avaliacoes'%}
                     <form action method="post">

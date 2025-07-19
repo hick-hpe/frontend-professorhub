@@ -1,10 +1,10 @@
 from django.urls import path
 from .views import *
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', index_view, name='index'),
-    path('login/', LoginView.as_view(template_name='apptelas/login.html'), name='login'),
+    path('login/', login_view, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', register_view, name='register'),
     path('dashboard/', dashboard_view, name='dashboard'),
@@ -17,4 +17,7 @@ urlpatterns = [
     
     path('calendarios/', calendarios_view, name='calendario'),
     path('calendarios/<int:id>/', calendario_detail_view, name='calendario_detail'),
+
+    path('enviar-email', enviar_email_verificacao_view, name='enviar_email_verificacao'),
+    path('conta-ativada', conta_ativada_view, name='conta_ativada')
 ]

@@ -45,7 +45,8 @@ Calendários
             <option value selected disabled>Selecione a disciplina</option>
             <option value="Banco de Dados" selected>Banco de Dados</option>
             <option value="Programação Web">Programação Web</option>
-            <option value="Engenharia de Software">Engenharia de Software</option>
+            <option value="Engenharia de Software">Engenharia de
+                Software</option>
         </select>
 
         <div class="d-flex justify-content-between mt-3">
@@ -57,24 +58,62 @@ Calendários
     <div class="my-2">
         <input type="text" class="form-control flex-grow-1"
             id="exampleInputEmail1"
-                aria-describedby="emailHelp" placeholder="Pesquisar datas">
+            aria-describedby="emailHelp" placeholder="Pesquisar datas">
     </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+            <i class="bi bi-plus-lg"></i> Adicionar Data (não letiva)
+        </button>
+    </div>
+
     <table class="table border">
         <thead>
             <tr class="table-dark">
                 <th scope="col">Data</th>
                 <th scope="col">Detalhes</th>
-                <th scope="col">É dia letivo?</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td style="height: 50px;">18/07/2025</td>
                 <td style="height: 50px;">Descrição da data</td>
-                <td style="height: 50px;">Não</td>
             </tr>
         </tbody>
     </table>
     {% endif %}
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Adicionar Data
+                    </h5>
+                    <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action method="post">
+                        <div class="mb-3">
+                            <label for="data">Data</label><br>
+                            <input type="date" class="form-control"
+                                id="data"
+                                name="data">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="detalhes">Detalhes</label><br>
+                            <textarea class="form-control" id="detalhes"
+                                name="detalhes" rows="5"
+                                style="resize: none;"></textarea>
+                        </div>
+                        <div class="btn btn-primary w-100">Salvar</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -21,7 +21,8 @@ Calendários
                     </p>
                 </div>
                 <div class="card-footer text-end">
-                    <a href="{% url 'calendario_detail' calendario.id %}" class="btn btn-primary btn-sm">Acessar</a>
+                    <a href="{% url 'calendario_detail' calendario.id %}"
+                        class="btn btn-primary btn-sm">Acessar</a>
                 </div>
             </div>
         </div>
@@ -33,4 +34,54 @@ Calendários
 
     </div>
 </div>
-{% endblock %}
+
+<button type="button"
+    class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center position-absolute bottom-0 end-0 mb-3 me-3"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal" style="height: 50px; width: 50px;">
+    <i class="bi bi-plus fs-3"></i>
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Adicionar
+                    Calendário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="nome">Nome</label><br>
+                        <input type="text" class="form-control" id="nome"
+                            name="nome">
+
+                        <div class="mb-3">
+                        <label for="disciplina">Disciplina</label><br>
+                            <select class="form-select" name="disciplina"
+                                id="disciplina">
+                                <option value selected disabled>Selecione a
+                                    disciplina</option>
+                                <option value="Banco de Dados" selected>Banco de
+                                    Dados</option>
+                                <option value="Programação Web">Programação
+                                    Web</option>
+                                <option
+                                    value="Engenharia de Software">Engenharia de
+                                    Software</option>
+                            </select>
+                        </div>
+
+                        <button type="submit"
+                            class="btn btn-primary w-100">Criar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
