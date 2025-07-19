@@ -8,286 +8,292 @@ Dashboard
 {% endblock %}
 
 {% block content %}
-    <!-- seção calendário e eventos -->
-    <section class="calendar container my-4">
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title mb-3">Calendário</h5>
+<!-- seção calendário e eventos -->
+<section class="calendar container my-4">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Calendário</h5>
 
-                        <div
-                            class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-                            <!-- Seletor de Mês -->
-                            <div class="d-flex align-items-center gap-2">
-                                <label for="mes-select"
-                                    class="fw-semibold mb-0">Mês:</label>
-                                <select id="mes-select"
-                                    class="form-select w-auto">
-                                    <option value="1">Janeiro</option>
-                                    <option value="2">Fevereiro</option>
-                                    <option value="3">Março</option>
-                                    <option value="4">Abril</option>
-                                    <option value="5">Maio</option>
-                                    <option value="6">Junho</option>
-                                    <option value="7" selected>Julho</option>
-                                    <option value="8">Agosto</option>
-                                    <option value="9">Setembro</option>
-                                    <option value="10">Outubro</option>
-                                    <option value="11">Novembro</option>
-                                    <option value="12">Dezembro</option>
-                                </select>
-                            </div>
-
-                            <!-- Seletor de Visualização -->
-                            <div class="d-flex align-items-center gap-2">
-                                <label for="visao-select"
-                                    class="fw-semibold mb-0">Visão:</label>
-                                <select id="visao-select"
-                                    class="form-select w-auto">
-                                    <option value="mes" selected>Por
-                                        Mês</option>
-                                    <option value="semana">Por Semana</option>
-                                </select>
-                            </div>
-
-                            <!-- (Opcional) Clica em "Hoje" -> o calendário volta para o mês atual -->
-                            <button
-                                class="btn btn-outline-primary d-flex align-items-center gap-1">
-                                <i class="bi bi-calendar-event"></i> Hoje
-                            </button>
+                    <div
+                        class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                        <!-- Seletor de Mês -->
+                        <div class="d-flex align-items-center gap-2">
+                            <label for="mes-select"
+                                class="fw-semibold mb-0">Mês:</label>
+                            <select id="mes-select"
+                                class="form-select w-auto">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7" selected>Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
                         </div>
 
-                        <div class="table-responsive">
-                            <table
-                                class="table table-bordered text-center align-middle mb-0">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th scope="col">D</th>
-                                        <th scope="col">S</th>
-                                        <th scope="col">T</th>
-                                        <th scope="col">Q</th>
-                                        <th scope="col">Q</th>
-                                        <th scope="col">S</th>
-                                        <th scope="col">S</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">29</td>
-                                        <td class="text-muted">30</td>
-                                        <td class="dia-calendario">1</td>
-                                        <td class="dia-calendario">2</td>
-                                        <td class="dia-calendario">3</td>
-                                        <td class="dia-calendario">4</td>
-                                        <td class="dia-calendario">5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dia-calendario">6</td>
-                                        <td class="dia-calendario">7</td>
-                                        <td class="dia-calendario">8</td>
-                                        <td class="dia-calendario">9</td>
-                                        <td class="dia-calendario">10</td>
-                                        <td class="dia-calendario">11</td>
-                                        <td class="dia-calendario">12</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dia-calendario">13</td>
-                                        <td class="dia-calendario">14</td>
-                                        <td class="dia-calendario">15</td>
-                                        <td class="bg-primary text-white p-0">
-                                            <div
-                                                class="d-flex flex-column justify-content-between h-100 p-1">
-                                                <div>16</div>
-                                                <div
-                                                    class="eventos mt-auto d-flex gap-1 justify-content-center">
-                                                    <div class="evento"></div>
-                                                    <div class="evento"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="dia-calendario">17</td>
-                                        <td class="dia-calendario">18</td>
-                                        <td class="dia-calendario">19</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dia-calendario">20</td>
-                                        <td class="dia-calendario">21</td>
-                                        <td class="dia-calendario">22</td>
-                                        <td class="dia-calendario">23</td>
-                                        <td class="dia-calendario">24</td>
-                                        <td class="bg-primary text-white p-0">
-                                            <div
-                                                class="d-flex flex-column justify-content-between h-100 p-1">
-                                                <div>25</div>
-                                                <div
-                                                    class="eventos mt-auto d-flex justify-content-center">
-                                                    <div class="evento"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="dia-calendario">26</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dia-calendario">27</td>
-                                        <td class="bg-primary text-white p-0">
-                                            <div
-                                                class="d-flex flex-column justify-content-between h-100 p-1">
-                                                <div>28</div>
-                                                <div
-                                                    class="eventos mt-auto d-flex justify-content-center">
-                                                    <div class="evento"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="dia-calendario">29</td>
-                                        <td class="dia-calendario">30</td>
-                                        <td class="dia-calendario">31</td>
-                                        <td class="text-muted">1</td>
-                                        <td class="text-muted">2</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <!-- Seletor de Visualização -->
+                        <div class="d-flex align-items-center gap-2">
+                            <label for="visao-select"
+                                class="fw-semibold mb-0">Visão:</label>
+                            <select id="visao-select"
+                                class="form-select w-auto">
+                                <option value="mes" selected>Por
+                                    Mês</option>
+                                <option value="semana">Por Semana</option>
+                            </select>
                         </div>
+
+                        <!-- (Opcional) Clica em "Hoje" -> o calendário volta para o mês atual -->
+                        <button
+                            class="btn btn-outline-primary d-flex align-items-center gap-1">
+                            <i class="bi bi-calendar-event"></i> Hoje
+                        </button>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Eventos</h5>
-                        <p class="card-text">
-                            <ul class="list-group">
-                                <li
-                                    class="list-group-item mb-3 p-3 shadow-sm border rounded">
-                                    <div
-                                        class="d-flex justify-content-between align-items-start mb-2">
-                                        <span
-                                            class="badge bg-warning text-dark">Em
-                                            andamento</span>
-                                        <a href="#"
-                                            class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-journal-text"></i>
-                                            Ver tarefa
-                                        </a>
-                                    </div>
-
-                                    <div class="d-flex">
+                    <div class="table-responsive">
+                        <table
+                            class="table table-bordered text-center align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">D</th>
+                                    <th scope="col">S</th>
+                                    <th scope="col">T</th>
+                                    <th scope="col">Q</th>
+                                    <th scope="col">Q</th>
+                                    <th scope="col">S</th>
+                                    <th scope="col">S</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-muted">29</td>
+                                    <td class="text-muted">30</td>
+                                    <td class="dia-calendario">1</td>
+                                    <td class="dia-calendario">2</td>
+                                    <td class="dia-calendario">3</td>
+                                    <td class="dia-calendario">4</td>
+                                    <td class="dia-calendario">5</td>
+                                </tr>
+                                <tr>
+                                    <td class="dia-calendario">6</td>
+                                    <td class="dia-calendario">7</td>
+                                    <td class="dia-calendario">8</td>
+                                    <td class="dia-calendario">9</td>
+                                    <td class="dia-calendario">10</td>
+                                    <td class="dia-calendario">11</td>
+                                    <td class="dia-calendario">12</td>
+                                </tr>
+                                <tr>
+                                    <td class="dia-calendario">13</td>
+                                    <td class="dia-calendario">14</td>
+                                    <td class="dia-calendario">15</td>
+                                    <td class="bg-primary text-white p-0">
                                         <div
-                                            class="text-center pe-3 me-3 border-end"
-                                            style="width: 60px;">
-                                            <div class="fs-3 fw-bold">16</div>
-                                            <small
-                                                class="text-muted">Qua</small>
+                                            class="d-flex flex-column justify-content-between h-100 p-1">
+                                            <div>16</div>
+                                            <div
+                                                class="eventos mt-auto d-flex gap-1 justify-content-center">
+                                                <div class="evento"></div>
+                                                <div class="evento"></div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h6 class="mb-1 fw-semibold">Fazer
-                                                recuperação</h6>
-                                            <small class="text-muted">Preparar a
-                                                recuperação para os
-                                                alunos</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item mb-3 p-3 shadow-sm border rounded">
-                                    <div
-                                        class="d-flex justify-content-between align-items-start mb-2">
-                                        <span
-                                            class="badge bg-danger text-light">Pendente</span>
-                                        <a href="#"
-                                            class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-journal-text"></i>
-                                            Ver tarefa
-                                        </a>
-                                    </div>
-
-                                    <div class="d-flex">
+                                    </td>
+                                    <td class="dia-calendario">17</td>
+                                    <td class="dia-calendario">18</td>
+                                    <td class="dia-calendario">19</td>
+                                </tr>
+                                <tr>
+                                    <td class="dia-calendario">20</td>
+                                    <td class="dia-calendario">21</td>
+                                    <td class="dia-calendario">22</td>
+                                    <td class="dia-calendario">23</td>
+                                    <td class="dia-calendario">24</td>
+                                    <td class="bg-primary text-white p-0">
                                         <div
-                                            class="text-center pe-3 me-3 border-end"
-                                            style="width: 60px;">
-                                            <div class="fs-3 fw-bold">16</div>
-                                            <small
-                                                class="text-muted">Qua</small>
+                                            class="d-flex flex-column justify-content-between h-100 p-1">
+                                            <div>25</div>
+                                            <div
+                                                class="eventos mt-auto d-flex justify-content-center">
+                                                <div class="evento"></div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h6
-                                                class="mb-1 fw-semibold">Correção
-                                                das provas</h6>
-                                            <small class="text-muted">Corrigir
-                                                as provas do 2 bimestre</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item mb-3 p-3 shadow-sm border rounded">
-                                    <div
-                                        class="d-flex justify-content-between align-items-start mb-2">
-                                        <span
-                                            class="badge bg-success text-light">Concluído</span>
-                                        <a href="#"
-                                            class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-journal-text"></i>
-                                            Ver tarefa
-                                        </a>
-                                    </div>
-
-                                    <div class="d-flex">
+                                    </td>
+                                    <td class="dia-calendario">26</td>
+                                </tr>
+                                <tr>
+                                    <td class="dia-calendario">27</td>
+                                    <td class="bg-primary text-white p-0">
                                         <div
-                                            class="text-center pe-3 me-3 border-end"
-                                            style="width: 60px;">
-                                            <div class="fs-3 fw-bold">25</div>
-                                            <small
-                                                class="text-muted">Sex</small>
+                                            class="d-flex flex-column justify-content-between h-100 p-1">
+                                            <div>28</div>
+                                            <div
+                                                class="eventos mt-auto d-flex justify-content-center">
+                                                <div class="evento"></div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h6 class="mb-1 fw-semibold">Aplicar
-                                                rabalho</h6>
-                                            <small class="text-muted">Aplicar
-                                                trabalho referente ao 2
-                                                bimestre</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item mb-3 p-3 shadow-sm border rounded">
-                                    <div
-                                        class="d-flex justify-content-between align-items-start mb-2">
-                                        <span
-                                            class="badge bg-warning text-dark">Em
-                                            andamento</span>
-                                        <a href="#"
-                                            class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-journal-text"></i>
-                                            Ver tarefa
-                                        </a>
-                                    </div>
-
-                                    <div class="d-flex">
-                                        <div
-                                            class="text-center pe-3 me-3 border-end"
-                                            style="width: 60px;">
-                                            <div class="fs-3 fw-bold">28</div>
-                                            <small
-                                                class="text-muted">Seg</small>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-1 fw-semibold">Lançar
-                                                conceitos</h6>
-                                            <small class="text-muted">Lançar os
-                                                conceitos para os alunos</small>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </p>
-                        <!-- <a href="#" class="card-link">Ver todos os eventos</a> -->
-                        <!-- <a href="#" class="card-link">Cadastrar novo</a> -->
+                                    </td>
+                                    <td class="dia-calendario">29</td>
+                                    <td class="dia-calendario">30</td>
+                                    <td class="dia-calendario">31</td>
+                                    <td class="text-muted">1</td>
+                                    <td class="text-muted">2</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-</div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Eventos</h5>
+                    <p class="card-text">
+                        <ul class="list-group">
+                            <li
+                                class="list-group-item mb-3 p-3 shadow-sm border rounded">
+                                <div
+                                    class="d-flex justify-content-between align-items-start mb-2">
+                                    <span
+                                        class="badge bg-warning text-dark">Em
+                                        andamento</span>
+                                    <a href="#"
+                                        class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-journal-text"></i>
+                                        Ver tarefa
+                                    </a>
+                                </div>
+
+                                <div class="d-flex">
+                                    <div
+                                        class="text-center pe-3 me-3 border-end"
+                                        style="width: 60px;">
+                                        <div class="fs-3 fw-bold">16</div>
+                                        <small
+                                            class="text-muted">Qua</small>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1 fw-semibold">Fazer
+                                            recuperação</h6>
+                                        <small class="text-muted">Preparar a
+                                            recuperação para os
+                                            alunos</small><br>
+                                        <small class="text-muted">Disciplina:
+                                            Banco de Dados</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li
+                                class="list-group-item mb-3 p-3 shadow-sm border rounded">
+                                <div
+                                    class="d-flex justify-content-between align-items-start mb-2">
+                                    <span
+                                        class="badge bg-danger text-light">Pendente</span>
+                                    <a href="#"
+                                        class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-journal-text"></i>
+                                        Ver tarefa
+                                    </a>
+                                </div>
+
+                                <div class="d-flex">
+                                    <div
+                                        class="text-center pe-3 me-3 border-end"
+                                        style="width: 60px;">
+                                        <div class="fs-3 fw-bold">16</div>
+                                        <small
+                                            class="text-muted">Qua</small>
+                                    </div>
+                                    <div>
+                                        <h6
+                                            class="mb-1 fw-semibold">Correção
+                                            das provas</h6>
+                                        <small class="text-muted">Corrigir
+                                            as provas do 2 bimestre</small><br>
+                                        <small class="text-muted">Disciplina:
+                                            Banco de Dados</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li
+                                class="list-group-item mb-3 p-3 shadow-sm border rounded">
+                                <div
+                                    class="d-flex justify-content-between align-items-start mb-2">
+                                    <span
+                                        class="badge bg-success text-light">Concluído</span>
+                                    <a href="#"
+                                        class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-journal-text"></i>
+                                        Ver tarefa
+                                    </a>
+                                </div>
+
+                                <div class="d-flex">
+                                    <div
+                                        class="text-center pe-3 me-3 border-end"
+                                        style="width: 60px;">
+                                        <div class="fs-3 fw-bold">25</div>
+                                        <small
+                                            class="text-muted">Sex</small>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1 fw-semibold">Aplicar trabalho</h6>
+                                        <small class="text-muted">Aplicar
+                                            trabalho referente ao 2
+                                            bimestre</small><br>
+                                        <small class="text-muted">Disciplina:
+                                            Banco de Dados</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li
+                                class="list-group-item mb-3 p-3 shadow-sm border rounded">
+                                <div
+                                    class="d-flex justify-content-between align-items-start mb-2">
+                                    <span
+                                        class="badge bg-warning text-dark">Em
+                                        andamento</span>
+                                    <a href="#"
+                                        class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-journal-text"></i>
+                                        Ver tarefa
+                                    </a>
+                                </div>
+
+                                <div class="d-flex">
+                                    <div
+                                        class="text-center pe-3 me-3 border-end"
+                                        style="width: 60px;">
+                                        <div class="fs-3 fw-bold">28</div>
+                                        <small
+                                            class="text-muted">Seg</small>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1 fw-semibold">Lançar
+                                            conceitos</h6>
+                                        <small class="text-muted">Lançar os
+                                            conceitos para os alunos</small><br>
+                                        <small class="text-muted">Disciplina:
+                                            Banco de Dados</small>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </p>
+                    <!-- <a href="#" class="card-link">Ver todos os eventos</a> -->
+                    <!-- <a href="#" class="card-link">Cadastrar novo</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
