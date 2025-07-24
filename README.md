@@ -11,6 +11,7 @@ A aplicação oferece uma interface intuitiva com navegação lateral, permitind
 ## Funcionalidades
 - Registro de avaliações e tarefas
 - Sidebar com navegação dinâmica
+- Gerar aulas automaticamente
 
 ## Instalação
 - Clone o repositório:
