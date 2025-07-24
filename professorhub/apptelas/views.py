@@ -16,6 +16,7 @@ def register_view(request):
 
             # pagina de ativacao da conta
             return redirect('enviar_email_verificacao')
+        
         print('erros...')
         print(form.errors)
         return render(request, 'apptelas/register.html', {
@@ -33,14 +34,9 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
 
-            # Ativa o usuário se ainda não estiver ativo
-            if not user.is_active:
-                user.is_active = True
-                user.save()
-
             # Realiza o login
             login(request, user)
-            return redirect("home")  # redirecione para onde quiser após login
+            return redirect("dashboard")  # redirecione para onde quiser após login
     else:
         form = UserLogin()
 
