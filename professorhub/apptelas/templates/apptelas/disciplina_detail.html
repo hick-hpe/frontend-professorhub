@@ -179,6 +179,9 @@ Disciplinas
         <thead>
             <tr class="table-dark">
                 <th scope="col">Nome</th>
+                {% if request.GET.aba == 'Aulas' or not request.GET.aba %}
+                <th scope="col">Plano de Aula</th>
+                {% endif %}
                 <th scope="col">Descrição</th>
                 <th scope="col">Data</th>
                 <th scope="col">Status</th>
@@ -187,7 +190,10 @@ Disciplinas
         </thead>
         <tbody>
             <tr>
-                <td style="height: 50px;">Tarefa</td>
+                <td style="height: 50px;">Aula/Tarefa</td>
+                {% if request.GET.aba == 'Aulas' or not request.GET.aba %}
+                <td style="height: 50px;">Plano de Aula 1</td>
+                {% endif %}
                 <td style="height: 50px;">Descrição da tarefa</td>
                 <td style="height: 50px;">2025-07-16</td>
                 <td style="height: 50px;">
@@ -204,6 +210,9 @@ Disciplinas
             </tr>
             <tr>
                 <td style="height: 50px;">Tarefa</td>
+                {% if request.GET.aba == 'Aulas' or not request.GET.aba %}
+                <td style="height: 50px;">Plano de Aula 1</td>
+                {% endif %}
                 <td style="height: 50px;">Descrição da tarefa</td>
                 <td style="height: 50px;">2025-07-16</td>
                 <td style="height: 50px;">
@@ -220,6 +229,9 @@ Disciplinas
             </tr>
             <tr>
                 <td style="height: 50px;">Tarefa</td>
+                {% if request.GET.aba == 'Aulas' or not request.GET.aba %}
+                <td style="height: 50px;">Plano de Aula 1</td>
+                {% endif %}
                 <td style="height: 50px;">Descrição da tarefa</td>
                 <td style="height: 50px;">2025-07-16</td>
                 <td style="height: 50px;">
