@@ -9,9 +9,11 @@ A aplicação oferece uma interface intuitiva com navegação lateral, permitind
 - Bootstrap 5
 
 ## Funcionalidades
+- Cadastro e login de usuários
 - Registro de avaliações e tarefas
 - Sidebar com navegação dinâmica
 - Gerar aulas automaticamente
+- Calendários por disciplina
 
 ## Instalação
 - Clone o repositório:
