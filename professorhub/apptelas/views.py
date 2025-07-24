@@ -99,6 +99,11 @@ def disciplina_detail_view(request, id):
 
 
 @login_required(login_url='/login/')
+def configuracoes_view(request):
+    return render(request, 'apptelas/configuracoes.html')
+
+
+@login_required(login_url='/login/')
 def calendarios_view(request):
     return render(request, 'apptelas/calendarios.html', {'calendarios': calendarios})
 

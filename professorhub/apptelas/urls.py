@@ -14,6 +14,8 @@ urlpatterns = [
     path('planos-aula/', planos_aula_view, name='planos_aula'),
 
     path('disciplinas/<int:id>/', disciplina_detail_view, name='disciplina_detail'),
+
+    path('configuracoes/', configuracoes_view, name='configuracoes'),
     
     path('calendarios/', calendarios_view, name='calendario'),
     path('calendarios/<int:id>/', calendario_detail_view, name='calendario_detail'),
