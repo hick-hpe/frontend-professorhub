@@ -17,8 +17,6 @@ def register_view(request):
             # pagina de ativacao da conta
             return redirect('enviar_email_verificacao')
         
-        print('erros...')
-        print(form.errors)
         return render(request, 'apptelas/register.html', {
             'form': form,
         })
@@ -36,7 +34,7 @@ def login_view(request):
 
             # Realiza o login
             login(request, user)
-            return redirect("dashboard")  # redirecione para onde quiser após login
+            return redirect("dashboard")
     else:
         form = UserLogin()
 

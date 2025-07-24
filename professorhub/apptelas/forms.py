@@ -20,16 +20,6 @@ class UserRegister(UserCreationForm):
         widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Confirme sua senha"})
     )
 
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.is_active = False
-        user.set_password(self.cleaned_data['password1'])
-
-        if commit:
-            user.save()
-
-        return user
-
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
