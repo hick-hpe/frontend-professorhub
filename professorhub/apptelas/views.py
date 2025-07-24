@@ -117,7 +117,6 @@ def avaliacoes_view(request):
 def tarefas_view(request):
     return render(request, 'apptelas/tarefas.html')
 
-
 @login_required(login_url='/login/')
 def planos_aula_view(request):
     return render(request, 'apptelas/planos-de-aula.html')
