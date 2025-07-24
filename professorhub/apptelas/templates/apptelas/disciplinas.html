@@ -16,8 +16,7 @@ Disciplinas
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">{{ disciplina.nome }}</h5>
-                    <p class="card-text">{{
-                        disciplina.descricao|default:"Sem descrição." }}</p>
+                    <p class="card-text">{{ disciplina.descricao|default:"Sem descrição." }}</p>
                 </div>
                 <div class="card-footer text-end">
                     <a href="{% url 'disciplina_detail' disciplina.id %}"
@@ -87,12 +86,12 @@ Disciplinas
                         <label>Dias das aulas e quantidade de aulas por
                             dia</label>
                         <!-- Segunda -->
-                        <div class="d-flex align-items-center gap-3 mt-2">
+                        <div class="d-flex align-items-center gap-3 mt-2 d-flex justify-content-between">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox"
                                     name="dias[]" value="segunda" id="segunda">
-                                <label class="form-check-label"
-                                    for="segunda">Segunda-feira</label>
+                                <label class="form-check-label" style="width: 80px !important;"
+                                    for="segunda">Segunda</label>
                             </div>
                             <input type="number" class="form-control"
                                 name="aulas_segunda"
@@ -100,12 +99,12 @@ Disciplinas
                         </div>
 
                         <!-- Terça -->
-                        <div class="d-flex align-items-center gap-3 mt-2">
+                        <div class="d-flex align-items-center gap-3 mt-2 d-flex justify-content-between">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox"
                                     name="dias[]" value="terca" id="terca">
-                                <label class="form-check-label"
-                                    for="terca">Terça-feira</label>
+                                <label class="form-check-label" style="width: 80px !important;"
+                                    for="terca">Terça</label>
                             </div>
                             <input type="number" class="form-control"
                                 name="aulas_terca"
@@ -113,12 +112,12 @@ Disciplinas
                         </div>
 
                         <!-- Quarta -->
-                        <div class="d-flex align-items-center gap-3 mt-2">
+                        <div class="d-flex align-items-center gap-3 mt-2 d-flex justify-content-between">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox"
                                     name="dias[]" value="quarta" id="quarta">
-                                <label class="form-check-label"
-                                    for="quarta">Quarta-feira</label>
+                                <label class="form-check-label" style="width: 80px !important;"
+                                    for="quarta">Quarta</label>
                             </div>
                             <input type="number" class="form-control"
                                 name="aulas_quarta"
@@ -126,12 +125,12 @@ Disciplinas
                         </div>
 
                         <!-- Quinta -->
-                        <div class="d-flex align-items-center gap-3 mt-2">
+                        <div class="d-flex align-items-center gap-3 mt-2 d-flex justify-content-between">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox"
                                     name="dias[]" value="quinta" id="quinta">
-                                <label class="form-check-label"
-                                    for="quinta">Quinta-feira</label>
+                                <label class="form-check-label" style="width: 80px !important;"
+                                    for="quinta">Quinta</label>
                             </div>
                             <input type="number" class="form-control"
                                 name="aulas_quinta"
@@ -139,12 +138,12 @@ Disciplinas
                         </div>
 
                         <!-- Sexta -->
-                        <div class="d-flex align-items-center gap-3 mt-2">
+                        <div class="d-flex align-items-center gap-3 mt-2 d-flex justify-content-between">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox"
                                     name="dias[]" value="sexta" id="sexta">
-                                <label class="form-check-label"
-                                    for="sexta">Sexta-feira</label>
+                                <label class="form-check-label" style="width: 80px !important;"
+                                    for="sexta">Sexta</label>
                             </div>
                             <input type="number" class="form-control"
                                 name="aulas_sexta"
