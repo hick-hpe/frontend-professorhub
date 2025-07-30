@@ -11,7 +11,6 @@ urlpatterns = [
     path('disciplinas/', disciplinas_view, name='disciplinas'),
     path('tarefas/', tarefas_view, name='tarefas'),
     path('avaliacoes/', avaliacoes_view, name='avaliacoes'),
-    path('planos-aula/', planos_aula_view, name='planos_aula'),
 
     path('disciplinas/<int:id>/', disciplina_detail_view, name='disciplina_detail'),
 
