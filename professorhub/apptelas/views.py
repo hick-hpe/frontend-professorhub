@@ -20,8 +20,7 @@ def register_view(request):
         return render(request, 'apptelas/register.html', {
             'form': form,
         })
-    
-    # senha: rsA/47y£kI-6
+
     form = UserRegister()
     return render(request, 'apptelas/register.html', {'form': form})
 
